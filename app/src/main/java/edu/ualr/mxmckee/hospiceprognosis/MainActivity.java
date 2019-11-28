@@ -2,8 +2,16 @@ package edu.ualr.mxmckee.hospiceprognosis;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.PagerTabStrip;
+import androidx.viewpager.widget.PagerTitleStrip;
+import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,16 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fragmentManager = getSupportFragmentManager();
-
-        if (findViewById(R.id.fragment_container) != null) {
-
-            if (savedInstanceState != null) {
-
-                return;
-            }
-
-            fragmentManager.beginTransaction().add(R.id.fragment_container, new RegisterFragment()).commit();
-        }
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
     }
 }

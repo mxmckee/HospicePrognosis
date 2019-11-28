@@ -13,19 +13,16 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PatientDataFragment extends Fragment {
+public class SubjectiveFragment extends Fragment {
 
-
-    public PatientDataFragment() {
+    public SubjectiveFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_patient_data, container, false);
+        return inflater.inflate(R.layout.fragment_subjective, container, false);
     }
-
 }

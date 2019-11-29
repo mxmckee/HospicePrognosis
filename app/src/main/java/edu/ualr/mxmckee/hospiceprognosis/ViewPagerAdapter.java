@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
+    @SuppressWarnings("deprecation")
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }

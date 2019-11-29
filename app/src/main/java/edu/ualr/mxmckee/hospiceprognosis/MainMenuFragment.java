@@ -15,8 +15,9 @@ import com.google.android.material.button.MaterialButton;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainMenuFragment extends Fragment {
+public class MainMenuFragment extends Fragment implements View.OnClickListener {
 
+    private MaterialButton getPrognosisButton;
 
     public MainMenuFragment() {
         // Required empty public constructor
@@ -29,19 +30,18 @@ public class MainMenuFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
-        MaterialButton materialButton = view.findViewById(R.id.get_prognosis_button);
-        materialButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SubjectiveFragment subjectiveFragment = new SubjectiveFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, subjectiveFragment, "subjective_data")
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+        getPrognosisButton = view.findViewById(R.id.get_prognosis_button);
+        getPrognosisButton.setOnClickListener(this);
 
         return view;
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.get_prognosis_button:
+                GetPrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SubjectiveFragment()).addToBackStack(null).commit();
+                break;
+        }
+    }
 }

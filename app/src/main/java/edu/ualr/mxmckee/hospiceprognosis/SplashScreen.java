@@ -16,7 +16,12 @@ public class SplashScreen extends AppCompatActivity {
         EasySplashScreen config = new EasySplashScreen(SplashScreen.this)
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(3000)
-                .withLogo(R.drawable.ic_app_icon);
+                .withBeforeLogoText("Hospice Prognosis Estimator\n")
+                .withLogo(R.drawable.ic_app_icon)
+                .withFooterText("\u00a9 2019 Michael McKee\n");
+
+        config.getBeforeLogoTextView().setTextSize(22);
+        config.getFooterTextView().setTextColor(getResources().getColor(R.color.secondaryColor, null));
 
         View view = config.create();
 

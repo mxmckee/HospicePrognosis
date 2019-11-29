@@ -1,6 +1,7 @@
 package edu.ualr.mxmckee.hospiceprognosis;
 
 import android.content.Intent;
+import android.os.Binder;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,8 @@ public class GetPrognosisActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        String username = getIntent().getStringExtra("username");
+
         fragmentManager = getSupportFragmentManager();
 
         if (findViewById(R.id.fragment_container) != null) {
@@ -31,7 +34,11 @@ public class GetPrognosisActivity extends AppCompatActivity {
                 return;
             }
 
-            fragmentManager.beginTransaction().add(R.id.fragment_container, new MainMenuFragment()).commit();
+            MainMenuFragment mainMenuFragment = new MainMenuFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("USERNAME", username);
+            mainMenuFragment.setArguments(bundle);
+            fragmentManager.beginTransaction().add(R.id.fragment_container, mainMenuFragment).commit();
         }
     }
 

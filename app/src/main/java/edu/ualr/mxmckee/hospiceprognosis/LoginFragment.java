@@ -50,6 +50,7 @@ public class LoginFragment extends Fragment {
                 if (user != null) {
                     //Toast.makeText(getActivity(), "User logged in successfully.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), GetPrognosisActivity.class);
+                    intent.putExtra("username", username);
                     startActivity(intent);
                 }
                 else {

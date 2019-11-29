@@ -34,7 +34,7 @@ public class LoginFragment extends Fragment {
         materialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), PatientData.class);
+                Intent intent = new Intent(getActivity(), GetPrognosisActivity.class);
                 startActivity(intent);
             }
         });

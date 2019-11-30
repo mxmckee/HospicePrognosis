@@ -1,7 +1,6 @@
 package edu.ualr.mxmckee.hospiceprognosis;
 
 import android.content.Intent;
-import android.os.Binder;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,6 +53,7 @@ public class GetPrognosisActivity extends AppCompatActivity {
             case R.id.log_out_action:
                 Intent intent = new Intent(GetPrognosisActivity.this, MainActivity.class);
                 startActivity(intent);
+                //finish();
                 return true;
             default: return super.onOptionsItemSelected(item);
         }

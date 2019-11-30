@@ -68,6 +68,7 @@ public class RegisterFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), GetPrognosisActivity.class);
                     intent.putExtra("username", username);
                     startActivity(intent);
+                    //getActivity().finish();
                 }
                 else {
                     Toast.makeText(getActivity(), "Username already exists.", Toast.LENGTH_SHORT).show();

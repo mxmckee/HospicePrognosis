@@ -18,6 +18,8 @@ import com.google.android.material.button.MaterialButton;
  */
 public class ObjectiveFragment extends Fragment {
 
+    public int finalHPE;
+
     public ObjectiveFragment() {
         // Required empty public constructor
     }
@@ -28,13 +30,21 @@ public class ObjectiveFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_objective, container, false);
 
-        MaterialButton materialButton = view.findViewById(R.id.last_button);
+        final MaterialButton materialButton = view.findViewById(R.id.last_button);
+        materialButton.setText(String.valueOf(getArguments().getInt("initial_score")));
         materialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO: Change this to display results
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
+                MainMenuFragment mainMenuFragment = new MainMenuFragment();
+                Bundle bundle = new Bundle();
+                finalHPE = getArguments().getInt("initial_score");
+                bundle.putInt("final_score", finalHPE);
+                mainMenuFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, mainMenuFragment, "main_menu")
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

@@ -31,7 +31,7 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
         getPrognosisButton = view.findViewById(R.id.get_prognosis_button);
-        getPrognosisButton.setText(getArguments().getString("USERNAME"));
+        getPrognosisButton.setText(String.format("Test: %s", String.valueOf(getArguments().getInt("final_score", 0))));
         getPrognosisButton.setOnClickListener(this);
 
         return view;

@@ -12,4 +12,7 @@ public interface UserDao {
 
     @Query("SELECT * FROM users WHERE username = :username AND password = :password")
     public User verifyCredentials(String username, String password);
+
+    @Query("SELECT * FROM users WHERE username = :username")
+    public User checkIfUnique(String username);
 }

@@ -1,6 +1,7 @@
 package edu.ualr.mxmckee.hospiceprognosis;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -60,8 +61,17 @@ public class RegisterFragment extends Fragment {
                 user.setSecurityQuestion(securityQuestion);
                 user.setSecurityAnswer(answer);
 
-                MainActivity.userDatabase.userDao().addUser(user);
-                Toast.makeText(getActivity(), "User added successfully.", Toast.LENGTH_SHORT).show();
+                User testUser = MainActivity.userDatabase.userDao().checkIfUnique(username);
+
+                if (testUser == null) {
+                    MainActivity.userDatabase.userDao().addUser(user);
+                    Intent intent = new Intent(getActivity(), GetPrognosisActivity.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getActivity(), "Username already exists.", Toast.LENGTH_SHORT).show();
+                }
 
                 usernameEditText.setText("");
                 passwordEditText.setText("");
@@ -69,8 +79,6 @@ public class RegisterFragment extends Fragment {
                 emailEditText.setText("");
                 securityQuestionEditText.setText("");
                 answerEditText.setText("");
-
-
             }
         });
 

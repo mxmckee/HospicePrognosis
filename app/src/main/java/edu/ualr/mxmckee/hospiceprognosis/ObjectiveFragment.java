@@ -92,7 +92,6 @@ public class ObjectiveFragment extends Fragment {
                     finalHPE += 1;
                 }
 
-                //TODO: Change this to display results
                 ResultFragment resultFragment = new ResultFragment();
                 Bundle bundle = new Bundle();
                 bundle.putFloat("final_score", finalHPE);

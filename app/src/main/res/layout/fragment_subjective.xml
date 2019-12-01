@@ -52,7 +52,6 @@
                     android:id="@+id/header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/space_min"
                     android:text="Symptoms"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/space_mid"
                     android:buttonTint="@color/primaryDarkColor"
-                    android:text="Apnea(s)"
+                    android:text="Apneas"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/unable_to_get_out_of_bed_checkbox"
                     app:useMaterialThemeColors="false" />

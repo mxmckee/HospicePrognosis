@@ -12,35 +12,17 @@
         tools:context=".MainActivity"
         android:paddingBottom="@dimen/space_mid">
 
-        <HorizontalScrollView
-            android:id="@+id/horizontal_scrollview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_big"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/space_min"
-                app:singleLine="true" />
-
-        </HorizontalScrollView>
-
         <androidx.cardview.widget.CardView
             android:id="@+id/symptoms_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_big"
             android:layout_marginStart="@dimen/space_big"
-            android:layout_marginTop="@dimen/space_min"
             android:layout_marginEnd="@dimen/space_big"
             app:cardCornerRadius="@dimen/space_min"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontal_scrollview">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

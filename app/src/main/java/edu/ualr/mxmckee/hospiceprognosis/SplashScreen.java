@@ -17,10 +17,10 @@ public class SplashScreen extends AppCompatActivity {
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(3000)
                 .withBeforeLogoText("Hospice Prognosis Estimator\n")
-                .withLogo(R.drawable.ic_app_icon)
+                .withLogo(R.drawable.ic_final_app_icon)
                 .withFooterText("\u00a9 2019 Michael McKee\n");
 
-        config.getBeforeLogoTextView().setTextSize(22);
+        config.getBeforeLogoTextView().setTextSize(24);
         config.getFooterTextView().setTextColor(getResources().getColor(R.color.secondaryColor, null));
 
         View view = config.create();

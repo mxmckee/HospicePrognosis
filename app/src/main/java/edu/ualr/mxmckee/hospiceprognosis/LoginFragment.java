@@ -51,7 +51,7 @@ public class LoginFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), GetPrognosisActivity.class);
                     intent.putExtra("username", username);
                     startActivity(intent);
-                    //getActivity().finish();
+                    getActivity().finish();
                 }
                 else {
                     Toast.makeText(getActivity(), "Invalid credentials.", Toast.LENGTH_SHORT).show();

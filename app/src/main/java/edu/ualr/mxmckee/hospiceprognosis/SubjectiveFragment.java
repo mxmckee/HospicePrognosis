@@ -18,7 +18,7 @@ import com.google.android.material.checkbox.MaterialCheckBox;
  */
 public class SubjectiveFragment extends Fragment {
 
-    public int initialHPE;
+    public float initialHPE;
 
     public SubjectiveFragment() {
         // Required empty public constructor
@@ -100,7 +100,7 @@ public class SubjectiveFragment extends Fragment {
 
                 ObjectiveFragment objectiveFragment = new ObjectiveFragment();
                 Bundle bundle = new Bundle();
-                bundle.putInt("initial_score", initialHPE);
+                bundle.putFloat("initial_score", initialHPE);
                 objectiveFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, objectiveFragment, "objective_data")

@@ -57,8 +57,8 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getActivity(), "Invalid credentials.", Toast.LENGTH_SHORT).show();
                 }
 
-                usernameEditText.setText("");
-                passwordEditText.setText("");
+                /*usernameEditText.setText("");
+                passwordEditText.setText("");*/
             }
         });
 

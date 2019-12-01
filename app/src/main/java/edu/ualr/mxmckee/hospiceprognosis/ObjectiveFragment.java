@@ -18,7 +18,7 @@ import com.google.android.material.textfield.TextInputEditText;
  */
 public class ObjectiveFragment extends Fragment {
 
-    public int finalHPE;
+    public float finalHPE;
 
     public ObjectiveFragment() {
         // Required empty public constructor
@@ -37,15 +37,15 @@ public class ObjectiveFragment extends Fragment {
         final TextInputEditText oxygenSaturationEditText = view.findViewById(R.id.input_oxygenSaturation);
         final TextInputEditText PPSEditText = view.findViewById(R.id.input_PPS);
 
-        MaterialButton materialButton = view.findViewById(R.id.last_button);
-        materialButton.setText(String.valueOf(getArguments().getInt("initial_score")));
-        materialButton.setOnClickListener(new View.OnClickListener() {
+        MaterialButton finishButton = view.findViewById(R.id.finish_button);
+        finishButton.setText(String.valueOf(getArguments().getFloat("initial_score")));
+        finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                finalHPE = getArguments().getInt("initial_score");
+                finalHPE = getArguments().getFloat("initial_score");
 
-                int temperature = Integer.parseInt(temperatureEditText.getText().toString());
+                float temperature = Float.parseFloat(temperatureEditText.getText().toString());
                 int heartRate = Integer.parseInt(heartRateEditText.getText().toString());
                 int respiratoryRate = Integer.parseInt(respiratoryRateEditText.getText().toString());
                 int bloodPressure = Integer.parseInt(bloodPressureEditText.getText().toString());
@@ -95,7 +95,7 @@ public class ObjectiveFragment extends Fragment {
                 //TODO: Change this to display results
                 MainMenuFragment mainMenuFragment = new MainMenuFragment();
                 Bundle bundle = new Bundle();
-                bundle.putInt("final_score", finalHPE);
+                bundle.putFloat("final_score", finalHPE);
                 mainMenuFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, mainMenuFragment, "main_menu")

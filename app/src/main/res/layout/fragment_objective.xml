@@ -170,7 +170,7 @@
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/last_button"
+            android:id="@+id/finish_button"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

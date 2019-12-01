@@ -3,7 +3,6 @@ package edu.ualr.mxmckee.hospiceprognosis;
 
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -32,7 +31,6 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
         getPrognosisButton = view.findViewById(R.id.get_prognosis_button);
-        getPrognosisButton.setText(String.format("Test: %s", String.valueOf(getArguments().getFloat("final_score", 0))));
         getPrognosisButton.setOnClickListener(this);
 
         return view;
@@ -42,7 +40,7 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.get_prognosis_button:
-                GetPrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SubjectiveFragment()).addToBackStack(null).commit();
+                PrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SubjectiveFragment()).addToBackStack(null).commit();
                 break;
         }
     }

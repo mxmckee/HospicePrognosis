@@ -65,7 +65,7 @@ public class RegisterFragment extends Fragment {
 
                 if (testUser == null) {
                     MainActivity.userDatabase.userDao().addUser(user);
-                    Intent intent = new Intent(getActivity(), GetPrognosisActivity.class);
+                    Intent intent = new Intent(getActivity(), PrognosisActivity.class);
                     intent.putExtra("username", username);
                     startActivity(intent);
                     getActivity().finish();

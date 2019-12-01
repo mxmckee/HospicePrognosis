@@ -4,6 +4,7 @@ package edu.ualr.mxmckee.hospiceprognosis;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,6 @@ public class ObjectiveFragment extends Fragment {
         final TextInputEditText PPSEditText = view.findViewById(R.id.input_PPS);
 
         MaterialButton finishButton = view.findViewById(R.id.finish_button);
-        finishButton.setText(String.valueOf(getArguments().getFloat("initial_score")));
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,12 +93,12 @@ public class ObjectiveFragment extends Fragment {
                 }
 
                 //TODO: Change this to display results
-                MainMenuFragment mainMenuFragment = new MainMenuFragment();
+                ResultFragment resultFragment = new ResultFragment();
                 Bundle bundle = new Bundle();
                 bundle.putFloat("final_score", finalHPE);
-                mainMenuFragment.setArguments(bundle);
+                resultFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, mainMenuFragment, "main_menu")
+                        .replace(R.id.fragment_container, resultFragment, "result")
                         .addToBackStack(null)
                         .commit();
             }

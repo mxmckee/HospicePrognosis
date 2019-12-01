@@ -10,14 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
-public class GetPrognosisActivity extends AppCompatActivity {
+public class PrognosisActivity extends AppCompatActivity {
 
     public static FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_prognosis);
+        setContentView(R.layout.activity_prognosis);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,7 +51,7 @@ public class GetPrognosisActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.log_out_action:
-                Intent intent = new Intent(GetPrognosisActivity.this, MainActivity.class);
+                Intent intent = new Intent(PrognosisActivity.this, MainActivity.class);
                 startActivity(intent);
                 //finish();
                 return true;

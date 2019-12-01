@@ -48,7 +48,7 @@ public class LoginFragment extends Fragment {
                 User user = MainActivity.userDatabase.userDao().verifyCredentials(username, password);
 
                 if (user != null) {
-                    Intent intent = new Intent(getActivity(), GetPrognosisActivity.class);
+                    Intent intent = new Intent(getActivity(), PrognosisActivity.class);
                     intent.putExtra("username", username);
                     startActivity(intent);
                     getActivity().finish();

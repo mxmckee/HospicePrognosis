@@ -8,9 +8,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 
 /**
@@ -19,6 +22,7 @@ import com.google.android.material.checkbox.MaterialCheckBox;
 public class SubjectiveFragment extends Fragment {
 
     public float initialHPE;
+    private ChipGroup chipGroup;
 
     public SubjectiveFragment() {
         // Required empty public constructor
@@ -29,6 +33,8 @@ public class SubjectiveFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_subjective, container, false);
+
+        chipGroup = view.findViewById(R.id.chipGroup);
 
         final MaterialCheckBox shortnessOfBreathCheckbox = view.findViewById(R.id.shortness_of_breath_checkbox);
         final MaterialCheckBox airwaySecretionsCheckbox = view.findViewById(R.id.airway_secretions_checkbox);
@@ -45,6 +51,21 @@ public class SubjectiveFragment extends Fragment {
         final MaterialCheckBox unableToSwallowLiquidsCheckbox = view.findViewById(R.id.unable_to_swallow_liquids_checkbox);
         final MaterialCheckBox minimalUrineOutputCheckbox = view.findViewById(R.id.minimal_urine_output_checkbox);
         final MaterialCheckBox unableToCommunicateCheckbox = view.findViewById(R.id.unable_to_communicate_checkbox);
+        addOrRemoveSymptom(shortnessOfBreathCheckbox);
+        addOrRemoveSymptom(airwaySecretionsCheckbox);
+        addOrRemoveSymptom(agitationCheckbox);
+        addOrRemoveSymptom(seizuresCheckbox);
+        addOrRemoveSymptom(bleedingCheckbox);
+        addOrRemoveSymptom(mottlingOfExtremitiesCheckbox);
+        addOrRemoveSymptom(confusionCheckbox);
+        addOrRemoveSymptom(unableToGetOutOfBedCheckbox);
+        addOrRemoveSymptom(apneaCheckbox);
+        addOrRemoveSymptom(skinUlcerCheckbox);
+        addOrRemoveSymptom(comatoseCheckbox);
+        addOrRemoveSymptom(unableToSwallowPillsCheckbox);
+        addOrRemoveSymptom(unableToSwallowLiquidsCheckbox);
+        addOrRemoveSymptom(minimalUrineOutputCheckbox);
+        addOrRemoveSymptom(unableToCommunicateCheckbox);
 
         MaterialButton nextButton = view.findViewById(R.id.next_button);
         nextButton.setOnClickListener(new View.OnClickListener() {
@@ -110,5 +131,31 @@ public class SubjectiveFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void addOrRemoveSymptom(MaterialCheckBox checkBox) {
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    addChipToChipGroup(compoundButton.getText().toString(), chipGroup);
+                }
+                else {
+                    removeChipFromChipGroup(compoundButton.getText().toString(), chipGroup);
+                }
+            }
+        });
+    }
+
+    private void addChipToChipGroup(String chipText, ChipGroup chipGroup) {
+        Chip chip = new Chip(getContext(),null,R.attr.EntryChipStyle);
+        chip.setText(chipText);
+        chip.setTag(chipText);
+        chipGroup.addView(chip);
+    }
+
+    private void removeChipFromChipGroup(String chipTag, ChipGroup chipGroup) {
+        chipGroup.removeView(chipGroup.findViewWithTag(chipTag));
     }
 }

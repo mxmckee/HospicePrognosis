@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/primaryLightColor</item>
         <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="EntryChipStyle">@style/EntryChip</item>
     </style>
 
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -19,5 +20,12 @@
 
     <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/primaryColor</item>
+    </style>
+
+    <style name="EntryChip" parent="Widget.MaterialComponents.Chip.Entry">
+        <item name="chipBackgroundColor">@color/primaryDarkColor</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="closeIcon">@null</item>
+        <item name="checkedIcon">@null</item>
     </style>
 </resources>

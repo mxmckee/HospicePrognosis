@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.material.button.MaterialButton;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +48,35 @@ public class ResultFragment extends Fragment {
         }
 
         prognosisTextView.setText(String.format("%s", prognosis));
+
+        MaterialButton saveButton = view.findViewById(R.id.save_button);
+        MaterialButton discardButton = view.findViewById(R.id.discard_button);
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainMenuFragment mainMenuFragment = new MainMenuFragment();
+                Bundle bundle = new Bundle();
+                mainMenuFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, mainMenuFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        discardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainMenuFragment mainMenuFragment = new MainMenuFragment();
+                Bundle bundle = new Bundle();
+                mainMenuFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, mainMenuFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
         return view;
     }

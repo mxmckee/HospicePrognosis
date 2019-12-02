@@ -207,16 +207,33 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
+        <HorizontalScrollView
+            android:id="@+id/horizontal_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_big"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/symptoms_layout">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/space_min"
+                app:singleLine="true" />
+
+        </HorizontalScrollView>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/next_button"
             style="@style/Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_mid"
             android:text="Next"
             app:layout_constraintEnd_toEndOf="@+id/symptoms_layout"
             app:layout_constraintStart_toStartOf="@+id/symptoms_layout"
-            app:layout_constraintTop_toBottomOf="@+id/symptoms_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_scrollview" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

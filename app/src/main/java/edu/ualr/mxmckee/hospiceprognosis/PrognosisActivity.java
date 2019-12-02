@@ -53,7 +53,7 @@ public class PrognosisActivity extends AppCompatActivity {
             case R.id.log_out_action:
                 Intent intent = new Intent(PrognosisActivity.this, MainActivity.class);
                 startActivity(intent);
-                //finish();
+                finish();
                 return true;
             default: return super.onOptionsItemSelected(item);
         }

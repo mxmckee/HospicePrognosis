@@ -21,7 +21,7 @@ import com.google.android.material.chip.ChipGroup;
  */
 public class SubjectiveFragment extends Fragment {
 
-    public float initialHPE;
+    public int initialHPE;
     private ChipGroup chipGroup;
 
     public SubjectiveFragment() {
@@ -121,7 +121,7 @@ public class SubjectiveFragment extends Fragment {
 
                 ObjectiveFragment objectiveFragment = new ObjectiveFragment();
                 Bundle bundle = new Bundle();
-                bundle.putFloat("initial_score", initialHPE);
+                bundle.putInt("initial_score", initialHPE);
                 objectiveFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, objectiveFragment, "objective_data")

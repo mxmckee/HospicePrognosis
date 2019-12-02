@@ -30,23 +30,25 @@ public class ResultFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_result, container, false);
 
-        float HPEScore = getArguments().getFloat("final_score");
+        int HPEScore = getArguments().getInt("final_score");
+        TextView prognosisHeaderTextView = view.findViewById(R.id.prognosis_header);
         TextView prognosisTextView = view.findViewById(R.id.prognosis);
         String prognosis;
 
         if (HPEScore < 9) {
             prognosis = "Weeks to months";
-            //prognosisTextView.setTextColor(getResources().getColor(R.color.prognosisColorGreen, null));
+            prognosisTextView.setTextColor(getResources().getColor(R.color.prognosisColorGreen, null));
         }
         else if (HPEScore >= 9 && HPEScore < 22) {
             prognosis = "Days to weeks";
-            //prognosisTextView.setTextColor(getResources().getColor(R.color.prognosisColorYellow, null));
+            prognosisTextView.setTextColor(getResources().getColor(R.color.prognosisColorYellow, null));
         }
         else {
             prognosis = "Hours to days";
-            //prognosisTextView.setTextColor(getResources().getColor(R.color.prognosisColorRed, null));
+            prognosisTextView.setTextColor(getResources().getColor(R.color.prognosisColorRed, null));
         }
 
+        prognosisHeaderTextView.setText(String.format("Based on the provided symptom and vital sign data, you have been assigned a hospice prognostic estimation score (HPES) of %d. Such a score corresponds to a prognosis of:", HPEScore));
         prognosisTextView.setText(String.format("%s", prognosis));
 
         MaterialButton saveButton = view.findViewById(R.id.save_button);

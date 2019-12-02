@@ -19,7 +19,7 @@ import com.google.android.material.textfield.TextInputEditText;
  */
 public class ObjectiveFragment extends Fragment {
 
-    public float finalHPE;
+    public int finalHPE;
 
     public ObjectiveFragment() {
         // Required empty public constructor
@@ -43,7 +43,7 @@ public class ObjectiveFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                finalHPE = getArguments().getFloat("initial_score");
+                finalHPE = getArguments().getInt("initial_score");
 
                 float temperature = Float.parseFloat(temperatureEditText.getText().toString());
                 int heartRate = Integer.parseInt(heartRateEditText.getText().toString());
@@ -94,7 +94,7 @@ public class ObjectiveFragment extends Fragment {
 
                 ResultFragment resultFragment = new ResultFragment();
                 Bundle bundle = new Bundle();
-                bundle.putFloat("final_score", finalHPE);
+                bundle.putInt("final_score", finalHPE);
                 resultFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, resultFragment, "result")

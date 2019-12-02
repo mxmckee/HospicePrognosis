@@ -28,7 +28,11 @@
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom" />
+            android:background="@color/cardViewBackgroundColor"
+            app:tabTextColor="@color/textColorPrimary"
+            app:tabIndicatorColor="@color/primaryColor"
+            app:tabIndicatorHeight="4dp"
+            android:layout_gravity="top" />
 
     </androidx.viewpager.widget.ViewPager>
 

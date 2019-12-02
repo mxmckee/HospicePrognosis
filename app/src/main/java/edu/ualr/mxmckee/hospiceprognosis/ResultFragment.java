@@ -4,6 +4,7 @@ package edu.ualr.mxmckee.hospiceprognosis;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,11 +58,17 @@ public class ResultFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                int count = manager.getBackStackEntryCount();
+                for (int i = 0; i < count; i++) {
+                    manager.popBackStack();
+                }
+
                 MainMenuFragment mainMenuFragment = new MainMenuFragment();
                 Bundle bundle = new Bundle();
                 mainMenuFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, mainMenuFragment)
+                        .replace(R.id.fragment_container, mainMenuFragment, "return_to_main_menu")
                         .addToBackStack(null)
                         .commit();
             }
@@ -70,6 +77,12 @@ public class ResultFragment extends Fragment {
         discardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                int count = manager.getBackStackEntryCount();
+                for (int i = 0; i < count; i++) {
+                    manager.popBackStack();
+                }
+
                 MainMenuFragment mainMenuFragment = new MainMenuFragment();
                 Bundle bundle = new Bundle();
                 mainMenuFragment.setArguments(bundle);

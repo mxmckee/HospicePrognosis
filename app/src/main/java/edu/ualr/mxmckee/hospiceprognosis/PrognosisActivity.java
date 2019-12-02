@@ -37,7 +37,7 @@ public class PrognosisActivity extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString("username", username);
             mainMenuFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().add(R.id.fragment_container, mainMenuFragment).commit();
+            fragmentManager.beginTransaction().add(R.id.fragment_container, mainMenuFragment, "main_menu").commit();
         }
     }
 

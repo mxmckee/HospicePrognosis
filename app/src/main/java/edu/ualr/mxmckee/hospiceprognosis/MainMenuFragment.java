@@ -40,7 +40,7 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.get_prognosis_button:
-                PrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SubjectiveFragment()).addToBackStack(null).commit();
+                PrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SubjectiveFragment(), "subjective_data").addToBackStack(null).commit();
                 break;
         }
     }

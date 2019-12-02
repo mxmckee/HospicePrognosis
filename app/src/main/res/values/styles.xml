@@ -1,9 +1,9 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/primaryLightColor</item>
         <item name="android:textColor">@color/textColorPrimary</item>
         <item name="EntryChipStyle">@style/EntryChip</item>
@@ -16,15 +16,12 @@
 
     <style name="Button" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/primaryColor</item>
-    </style>
-
-    <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
     <style name="EntryChip" parent="Widget.MaterialComponents.Chip.Entry">
-        <item name="chipBackgroundColor">@color/primaryDarkColor</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="chipBackgroundColor">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
         <item name="closeIcon">@null</item>
         <item name="checkedIcon">@null</item>
     </style>

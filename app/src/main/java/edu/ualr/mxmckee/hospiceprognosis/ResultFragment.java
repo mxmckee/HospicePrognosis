@@ -48,7 +48,7 @@ public class ResultFragment extends Fragment {
             prognosisTextView.setTextColor(getResources().getColor(R.color.prognosisColorRed, null));
         }
 
-        prognosisHeaderTextView.setText(String.format("Based on the provided symptom and vital sign data, you have been assigned a hospice prognostic estimation score (HPES) of %d. Such a score corresponds to a prognosis of:", HPEScore));
+        prognosisHeaderTextView.setText(String.format("Based on the provided symptoms and vital sign information, you have been assigned a hospice prognostic estimation score (HPES) of %d. Such a score corresponds to a prognosis of:", HPEScore));
         prognosisTextView.setText(String.format("%s", prognosis));
 
         MaterialButton saveButton = view.findViewById(R.id.save_button);

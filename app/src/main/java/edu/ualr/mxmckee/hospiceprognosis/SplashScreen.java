@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
                 .withFooterText("\u00a9 2019 Michael McKee\n");
 
         config.getBeforeLogoTextView().setTextSize(24);
-        config.getBeforeLogoTextView().setTextColor(getResources().getColor(R.color.primaryDarkColor, null));
+        config.getBeforeLogoTextView().setTextColor(getResources().getColor(R.color.secondaryColor, null));
         config.getFooterTextView().setTextColor(getResources().getColor(R.color.secondaryColor, null));
 
         View view = config.create();

@@ -10,12 +10,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space_mid">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/result_layout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_big"
             android:layout_marginTop="@dimen/space_big"
             android:layout_marginEnd="@dimen/space_big"
@@ -44,7 +45,7 @@
                     android:id="@+id/prognosis_header"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primaryDarkColor"
+                    android:textColor="@color/secondaryColor"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -56,23 +57,22 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_min"
                     android:paddingHorizontal="@dimen/space_min"
-                    android:textColor="@color/primaryDarkColor"
+                    android:textColor="@color/secondaryColor"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/prognosis_header"
-                    android:gravity="center_horizontal"
-                    android:background="@color/secondaryColor"/>
+                    android:gravity="center_horizontal"/>
 
                 <TextView
                     android:id="@+id/prognosis_footer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_min"
-                    android:textColor="@color/primaryDarkColor"
+                    android:textColor="@color/secondaryColor"
                     android:textSize="16sp"
-                    android:text="Please speak with your physician regarding future steps."
+                    android:text="Please seek advice from your physician regarding future steps."
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/prognosis" />

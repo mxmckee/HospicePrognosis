@@ -2,9 +2,10 @@
 <resources>
     <color name="primaryColor">#0066ff</color>
     <color name="primaryLightColor">#418dff</color>
-    <color name="primaryDarkColor">#0045ad</color>
+    <color name="colorPrimaryDark">#0045ad</color>
+    <color name="primaryDarkColor">@color/primaryColor</color>
     <color name="secondaryColor">#adadad</color>
-    <color name="textColorPrimary">@android:color/black</color>
+    <color name="textColorPrimary">@android:color/white</color>
     <color name="prognosisColorGreen">#00ff00</color>
     <color name="prognosisColorYellow">#ffff00</color>
     <color name="prognosisColorRed">#ff0000</color>

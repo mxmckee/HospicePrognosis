@@ -1,6 +1,7 @@
 package edu.ualr.mxmckee.hospiceprognosis;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -15,4 +16,7 @@ public interface UserDao {
 
     @Query("SELECT * FROM users WHERE username = :username")
     public User checkIfUnique(String username);
+
+    @Delete
+    public void deleteUser(User user);
 }

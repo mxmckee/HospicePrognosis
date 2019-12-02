@@ -19,6 +19,10 @@
         <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
+    <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/primaryColor</item>
+    </style>
+
     <style name="EntryChip" parent="Widget.MaterialComponents.Chip.Entry">
         <item name="chipBackgroundColor">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/textColorPrimary</item>

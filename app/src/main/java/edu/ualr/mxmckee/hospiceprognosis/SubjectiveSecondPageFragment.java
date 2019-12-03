@@ -14,6 +14,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 /**
@@ -22,7 +23,7 @@ import com.google.android.material.chip.ChipGroup;
 public class SubjectiveSecondPageFragment extends Fragment {
 
     public int tempHPE;
-    private ChipGroup chipGroup;
+    //private ChipGroup chipGroup;
 
     public SubjectiveSecondPageFragment() {
         // Required empty public constructor
@@ -35,7 +36,7 @@ public class SubjectiveSecondPageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_subjective_second_page, container, false);
 
-        chipGroup = view.findViewById(R.id.chipGroup);
+        //chipGroup = view.findViewById(R.id.chipGroup);
 
         final MaterialCheckBox airwaySecretionsCheckbox = view.findViewById(R.id.airway_secretions_checkbox);
         final MaterialCheckBox mottlingOfExtremitiesCheckbox = view.findViewById(R.id.mottling_of_extremities_checkbox);
@@ -43,14 +44,14 @@ public class SubjectiveSecondPageFragment extends Fragment {
         final MaterialCheckBox apneaCheckbox = view.findViewById(R.id.apnea_checkbox);
         final MaterialCheckBox skinUlcerCheckbox = view.findViewById(R.id.skin_ulcer_checkbox);
         final MaterialCheckBox comatoseCheckbox = view.findViewById(R.id.comatose_checkbox);
-        addOrRemoveSymptom(airwaySecretionsCheckbox);
+        /*addOrRemoveSymptom(airwaySecretionsCheckbox);
         addOrRemoveSymptom(mottlingOfExtremitiesCheckbox);
         addOrRemoveSymptom(unableToGetOutOfBedCheckbox);
         addOrRemoveSymptom(apneaCheckbox);
         addOrRemoveSymptom(skinUlcerCheckbox);
-        addOrRemoveSymptom(comatoseCheckbox);
+        addOrRemoveSymptom(comatoseCheckbox);*/
 
-        MaterialButton nextButton = view.findViewById(R.id.next_button);
+        FloatingActionButton nextButton = view.findViewById(R.id.next_button);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +90,7 @@ public class SubjectiveSecondPageFragment extends Fragment {
         return view;
     }
 
-    private void addOrRemoveSymptom(MaterialCheckBox checkBox) {
+    /*private void addOrRemoveSymptom(MaterialCheckBox checkBox) {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -113,5 +114,5 @@ public class SubjectiveSecondPageFragment extends Fragment {
 
     private void removeChipFromChipGroup(String chipTag, ChipGroup chipGroup) {
         chipGroup.removeView(chipGroup.findViewWithTag(chipTag));
-    }
+    }*/
 }

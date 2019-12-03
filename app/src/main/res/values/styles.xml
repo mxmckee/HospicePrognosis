@@ -29,4 +29,8 @@
         <item name="closeIcon">@null</item>
         <item name="checkedIcon">@null</item>
     </style>
+
+    <style name="FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/primaryColor</item>
+    </style>
 </resources>

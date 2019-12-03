@@ -14,6 +14,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 /**
@@ -22,7 +23,7 @@ import com.google.android.material.chip.ChipGroup;
 public class SubjectiveFirstPageFragment extends Fragment {
 
     public int initialHPE;
-    private ChipGroup chipGroup;
+    //private ChipGroup chipGroup;
 
     public SubjectiveFirstPageFragment() {
         // Required empty public constructor
@@ -34,7 +35,7 @@ public class SubjectiveFirstPageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_subjective_first_page, container, false);
 
-        chipGroup = view.findViewById(R.id.chipGroup);
+        //chipGroup = view.findViewById(R.id.chipGroup);
 
         final MaterialCheckBox shortnessOfBreathCheckbox = view.findViewById(R.id.shortness_of_breath_checkbox);
         final MaterialCheckBox agitationCheckbox = view.findViewById(R.id.agitation_checkbox);
@@ -45,7 +46,7 @@ public class SubjectiveFirstPageFragment extends Fragment {
         final MaterialCheckBox unableToSwallowLiquidsCheckbox = view.findViewById(R.id.unable_to_swallow_liquids_checkbox);
         final MaterialCheckBox minimalUrineOutputCheckbox = view.findViewById(R.id.minimal_urine_output_checkbox);
         final MaterialCheckBox unableToCommunicateCheckbox = view.findViewById(R.id.unable_to_communicate_checkbox);
-        addOrRemoveSymptom(shortnessOfBreathCheckbox);
+        /*addOrRemoveSymptom(shortnessOfBreathCheckbox);
         addOrRemoveSymptom(agitationCheckbox);
         addOrRemoveSymptom(seizuresCheckbox);
         addOrRemoveSymptom(bleedingCheckbox);
@@ -53,9 +54,9 @@ public class SubjectiveFirstPageFragment extends Fragment {
         addOrRemoveSymptom(unableToSwallowPillsCheckbox);
         addOrRemoveSymptom(unableToSwallowLiquidsCheckbox);
         addOrRemoveSymptom(minimalUrineOutputCheckbox);
-        addOrRemoveSymptom(unableToCommunicateCheckbox);
+        addOrRemoveSymptom(unableToCommunicateCheckbox);*/
 
-        MaterialButton nextButton = view.findViewById(R.id.next_button);
+        FloatingActionButton nextButton = view.findViewById(R.id.next_button);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +104,7 @@ public class SubjectiveFirstPageFragment extends Fragment {
         return view;
     }
 
-    private void addOrRemoveSymptom(MaterialCheckBox checkBox) {
+    /*private void addOrRemoveSymptom(MaterialCheckBox checkBox) {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
@@ -127,5 +128,5 @@ public class SubjectiveFirstPageFragment extends Fragment {
 
     private void removeChipFromChipGroup(String chipTag, ChipGroup chipGroup) {
         chipGroup.removeView(chipGroup.findViewWithTag(chipTag));
-    }
+    }*/
 }

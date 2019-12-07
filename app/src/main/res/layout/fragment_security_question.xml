@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/secondaryColor" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space_mid">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/security_question_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/space_big"
+            android:layout_marginTop="@dimen/space_big"
+            android:layout_marginEnd="@dimen/space_big"
+            app:cardCornerRadius="@dimen/space_min"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/space_mid"
+                android:paddingVertical="@dimen/space_mid">
+
+                <TextView
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/space_min"
+                    android:text="Answer Security Question"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_securityQuestion"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/header">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_securityQuestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_securityAnswer"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:endIconMode="password_toggle"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout_securityQuestion"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout_securityQuestion"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout_securityQuestion">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_securityAnswer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_lock_open_24px"
+                        android:drawablePadding="@dimen/space_mid"
+                        android:drawableTint="@color/primaryDarkColor"
+                        android:hint="Answer"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit_button"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_mid"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="@+id/security_question_layout"
+            app:layout_constraintStart_toStartOf="@+id/security_question_layout"
+            app:layout_constraintTop_toBottomOf="@+id/security_question_layout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/return_to_login_button"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Return to Login"
+            app:layout_constraintEnd_toEndOf="@+id/security_question_layout"
+            app:layout_constraintStart_toStartOf="@+id/security_question_layout"
+            app:layout_constraintTop_toBottomOf="@+id/submit_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

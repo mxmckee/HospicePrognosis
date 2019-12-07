@@ -22,6 +22,7 @@ public class LoginFragment extends Fragment {
 
     private TextInputEditText usernameEditText, passwordEditText;
     private MaterialButton loginButton;
+    private MaterialButton forgotPasswordButton;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -37,6 +38,7 @@ public class LoginFragment extends Fragment {
         usernameEditText = view.findViewById(R.id.input_username);
         passwordEditText = view.findViewById(R.id.input_password);
         loginButton = view.findViewById(R.id.login_button);
+        forgotPasswordButton = view.findViewById(R.id.forgot_password_button);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,9 +58,15 @@ public class LoginFragment extends Fragment {
                 else {
                     Toast.makeText(getActivity(), "Invalid credentials.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
 
-                /*usernameEditText.setText("");
-                passwordEditText.setText("");*/
+        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ForgotPasswordActivity.class);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 

@@ -73,13 +73,6 @@ public class RegisterFragment extends Fragment {
                 else {
                     Toast.makeText(getActivity(), "Username already exists.", Toast.LENGTH_SHORT).show();
                 }
-
-                /*usernameEditText.setText("");
-                passwordEditText.setText("");
-                nameEditText.setText("");
-                emailEditText.setText("");
-                securityQuestionEditText.setText("");
-                answerEditText.setText("");*/
             }
         });
 

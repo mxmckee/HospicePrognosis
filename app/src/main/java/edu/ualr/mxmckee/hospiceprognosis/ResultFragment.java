@@ -73,7 +73,7 @@ public class ResultFragment extends Fragment {
                 int prognosisID = MainActivity.prognosisDatabase.prognosisDao().getCount() + 1;
 
                 Date currDate = new Date();
-                DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
+                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
                 String date = dateFormat.format(currDate);
 
 

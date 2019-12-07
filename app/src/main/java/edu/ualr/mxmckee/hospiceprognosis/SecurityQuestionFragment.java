@@ -38,10 +38,10 @@ public class SecurityQuestionFragment extends Fragment {
 
         securityQuestionEditText = view.findViewById(R.id.input_securityQuestion);
         securityAnswerEditText = view.findViewById(R.id.input_securityAnswer);
-        submitButton = view.findViewById(R.id.submit_button);
+        submitButton = view.findViewById(R.id.check_button);
         returnToLoginButton = view.findViewById(R.id.return_to_login_button);
 
-        final User user = MainActivity.userDatabase.userDao().checkIfUnique(getArguments().getString("username"));
+        final User user = MainActivity.userDatabase.userDao().getUser(getArguments().getString("username"));
 
         securityQuestionEditText.setHint(user.getSecurityQuestion());
         securityQuestionEditText.setEnabled(false);
@@ -51,7 +51,14 @@ public class SecurityQuestionFragment extends Fragment {
             public void onClick(View view) {
                 String providedAnswer = securityAnswerEditText.getText().toString();
                 if (providedAnswer.matches(user.getSecurityAnswer())) {
-
+                    ResetPasswordFragment resetPasswordFragment = new ResetPasswordFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("username", getArguments().getString("username"));
+                    resetPasswordFragment.setArguments(bundle);
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, resetPasswordFragment, "reset_password")
+                            .addToBackStack(null)
+                            .commit();
                 }
                 else {
                     Toast.makeText(getActivity(), "Answer is incorrect.", Toast.LENGTH_SHORT).show();

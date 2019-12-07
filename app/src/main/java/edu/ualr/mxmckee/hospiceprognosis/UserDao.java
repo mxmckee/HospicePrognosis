@@ -15,7 +15,7 @@ public interface UserDao {
     public User verifyCredentials(String username, String password);
 
     @Query("SELECT * FROM users WHERE username = :username")
-    public User checkIfUnique(String username);
+    public User getUser(String username);
 
     @Delete
     public void deleteUser(User user);

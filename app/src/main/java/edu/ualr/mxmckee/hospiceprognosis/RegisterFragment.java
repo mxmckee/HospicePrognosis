@@ -61,7 +61,7 @@ public class RegisterFragment extends Fragment {
                 user.setSecurityQuestion(securityQuestion);
                 user.setSecurityAnswer(answer);
 
-                User testUser = MainActivity.userDatabase.userDao().checkIfUnique(username);
+                User testUser = MainActivity.userDatabase.userDao().getUser(username);
 
                 if (testUser == null) {
                     MainActivity.userDatabase.userDao().addUser(user);

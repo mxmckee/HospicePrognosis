@@ -45,7 +45,7 @@ public class VerifyUsernameFragment extends Fragment {
 
                 String username = usernameEditText.getText().toString();
 
-                User testUser = MainActivity.userDatabase.userDao().checkIfUnique(username);
+                User testUser = MainActivity.userDatabase.userDao().getUser(username);
 
                 if (testUser == null) {
                     Toast.makeText(getActivity(), "Username doesn't exist.", Toast.LENGTH_SHORT).show();

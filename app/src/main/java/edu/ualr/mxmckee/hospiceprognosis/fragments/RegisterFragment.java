@@ -58,25 +58,31 @@ public class RegisterFragment extends Fragment {
                 String securityQuestion = securityQuestionEditText.getText().toString();
                 String answer = answerEditText.getText().toString();
 
-                User user = new User();
-                user.setUsername(username);
-                user.setPassword(password);
-                user.setName(name);
-                user.setEmail(email);
-                user.setSecurityQuestion(securityQuestion);
-                user.setSecurityAnswer(answer);
+                if (!username.matches("") && !password.matches("") && !name.matches("") && !email.matches("") && !securityQuestion.matches("") && !answer.matches("")) {
 
-                User testUser = MainActivity.userDatabase.userDao().getUser(username);
+                    User user = new User();
+                    user.setUsername(username);
+                    user.setPassword(password);
+                    user.setName(name);
+                    user.setEmail(email);
+                    user.setSecurityQuestion(securityQuestion);
+                    user.setSecurityAnswer(answer);
 
-                if (testUser == null) {
-                    MainActivity.userDatabase.userDao().addUser(user);
-                    Intent intent = new Intent(getActivity(), PrognosisActivity.class);
-                    intent.putExtra("username", username);
-                    startActivity(intent);
-                    getActivity().finish();
+                    User testUser = MainActivity.userDatabase.userDao().getUser(username);
+
+                    if (testUser == null) {
+                        MainActivity.userDatabase.userDao().addUser(user);
+                        Intent intent = new Intent(getActivity(), PrognosisActivity.class);
+                        intent.putExtra("username", username);
+                        startActivity(intent);
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Username already exists.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    Toast.makeText(getActivity(), "Username already exists.", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getActivity(), "All fields must be populated.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

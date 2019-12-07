@@ -27,6 +27,7 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
     private MaterialButton getPrognosisButton;
     private MaterialButton viewPrognosesButton;
     private MaterialButton clearPrognosisHistoryButton;
+    private MaterialButton viewUpdateProfileButton;
     private MaterialButton deleteAccountButton;
 
     public MainMenuFragment() {
@@ -46,6 +47,8 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
         viewPrognosesButton.setOnClickListener(this);
         clearPrognosisHistoryButton = view.findViewById(R.id.clear_prognosis_history_button);
         clearPrognosisHistoryButton.setOnClickListener(this);
+        viewUpdateProfileButton = view.findViewById(R.id.view_update_profile_button);
+        viewUpdateProfileButton.setOnClickListener(this);
         deleteAccountButton = view.findViewById(R.id.delete_account_button);
         deleteAccountButton.setOnClickListener(this);
 
@@ -73,9 +76,13 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
                 MainActivity.prognosisDatabase.prognosisDao().clearPrognoses(getArguments().getString("username"));
                 Toast.makeText(getActivity(), "Prognosis history successfully cleared.", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.view_update_profile_button:
+                UpdateProfileFragment updateProfileFragment = new UpdateProfileFragment();
+                updateProfileFragment.setArguments(bundle);
+                PrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, updateProfileFragment, "update_profile").addToBackStack(null).commit();
+                break;
             case R.id.delete_account_button:
                 MainActivity.prognosisDatabase.prognosisDao().clearPrognoses(getArguments().getString("username"));
-
                 User user = new User();
                 user.setUsername(getArguments().getString("username"));
                 MainActivity.userDatabase.userDao().deleteUser(user);

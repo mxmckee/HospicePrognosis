@@ -46,7 +46,6 @@
                     style="@style/TextInputLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:endIconMode="clear_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/header">
@@ -55,6 +54,10 @@
                         android:id="@+id/input_securityQuestion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_lock_24px"
+                        android:drawablePadding="@dimen/space_mid"
+                        android:drawableTint="@color/primaryDarkColor"
+                        android:hint="Security question"
                         android:inputType="textCapSentences" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_mid"
-            android:text="Submit"
+            android:text="Check"
             app:layout_constraintEnd_toEndOf="@+id/security_question_layout"
             app:layout_constraintStart_toStartOf="@+id/security_question_layout"
             app:layout_constraintTop_toBottomOf="@+id/security_question_layout" />

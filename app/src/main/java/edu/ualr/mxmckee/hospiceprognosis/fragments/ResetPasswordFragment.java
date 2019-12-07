@@ -26,7 +26,7 @@ public class ResetPasswordFragment extends Fragment {
 
     private TextInputEditText passwordEditText;
     private TextInputEditText confirmPasswordEditText;
-    private MaterialButton resetButton;
+    private MaterialButton resetButton, cancelButton;
 
     public ResetPasswordFragment() {
         // Required empty public constructor
@@ -42,6 +42,7 @@ public class ResetPasswordFragment extends Fragment {
         passwordEditText = view.findViewById(R.id.input_enterPassword);
         confirmPasswordEditText = view.findViewById(R.id.input_confirmPassword);
         resetButton = view.findViewById(R.id.reset_button);
+        cancelButton = view.findViewById(R.id.cancel_button);
 
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +74,17 @@ public class ResetPasswordFragment extends Fragment {
                 }
                 else {
 
-                    Toast.makeText(getActivity(), "Both fields must be populated.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "All fields must be populated.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 

@@ -53,16 +53,22 @@ public class LoginFragment extends Fragment {
                 String username = usernameEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
-                User user = MainActivity.userDatabase.userDao().verifyCredentials(username, password);
+                if (!username.matches("") && !password.matches("")) {
 
-                if (user != null) {
-                    Intent intent = new Intent(getActivity(), PrognosisActivity.class);
-                    intent.putExtra("username", username);
-                    startActivity(intent);
-                    getActivity().finish();
+                    User user = MainActivity.userDatabase.userDao().verifyCredentials(username, password);
+
+                    if (user != null) {
+                        Intent intent = new Intent(getActivity(), PrognosisActivity.class);
+                        intent.putExtra("username", username);
+                        startActivity(intent);
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Invalid credentials.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    Toast.makeText(getActivity(), "Invalid credentials.", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getActivity(), "All fields must be populated.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -72,7 +78,6 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ForgotPasswordActivity.class);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
 

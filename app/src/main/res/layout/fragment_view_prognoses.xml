@@ -10,10 +10,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space_mid">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/login_layout"
+            android:id="@+id/prognoses_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/space_big"
@@ -51,18 +52,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/header" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/return_to_main_menu_button"
-                    style="@style/Button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_mid"
-                    android:text="Return to Main Menu"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/prognoses" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/return_to_main_menu_button"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_mid"
+            android:text="Return to Main Menu"
+            app:layout_constraintEnd_toEndOf="@+id/prognoses_layout"
+            app:layout_constraintStart_toStartOf="@+id/prognoses_layout"
+            app:layout_constraintTop_toBottomOf="@+id/prognoses_layout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

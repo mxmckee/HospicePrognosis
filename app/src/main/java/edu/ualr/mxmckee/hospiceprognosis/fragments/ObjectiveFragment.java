@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -44,64 +45,70 @@ public class ObjectiveFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                finalHPE = getArguments().getInt("initial_score");
+                String temperatureText = temperatureEditText.getText().toString();
+                String heartRateText = heartRateEditText.getText().toString();
+                String respiratoryRateText = respiratoryRateEditText.getText().toString();
+                String bloodPressureText = bloodPressureEditText.getText().toString();
+                String oxygenSaturationText = oxygenSaturationEditText.getText().toString();
+                String PPSText = PPSEditText.getText().toString();
 
-                float temperature = Float.parseFloat(temperatureEditText.getText().toString());
-                int heartRate = Integer.parseInt(heartRateEditText.getText().toString());
-                int respiratoryRate = Integer.parseInt(respiratoryRateEditText.getText().toString());
-                int bloodPressure = Integer.parseInt(bloodPressureEditText.getText().toString());
-                int oxygenSaturation = Integer.parseInt(oxygenSaturationEditText.getText().toString());
-                int PPS = Integer.parseInt(PPSEditText.getText().toString());
+                if (!temperatureText.matches("") && !heartRateText.matches("") && !respiratoryRateText.matches("") && !bloodPressureText.matches("") && !oxygenSaturationText.matches("") && !PPSText.matches("")) {
 
-                if (temperature > 101) {
-                    finalHPE += 2;
-                }
-                else {
-                    finalHPE += 1;
-                }
-                if (heartRate > 120) {
-                    finalHPE += 3;
-                }
-                else {
-                    finalHPE += 1;
-                }
-                if (respiratoryRate > 35) {
-                    finalHPE += 2;
-                }
-                else {
-                    finalHPE += 1;
-                }
-                if (bloodPressure < 90) {
-                    finalHPE += 3;
-                }
-                else {
-                    finalHPE += 1;
-                }
-                if (oxygenSaturation < 90) {
-                    finalHPE += 3;
-                }
-                else {
-                    finalHPE += 1;
-                }
-                if (PPS < 20) {
-                    finalHPE += 3;
-                }
-                else if (PPS < 30) {
-                    finalHPE += 2;
-                }
-                else {
-                    finalHPE += 1;
-                }
+                    float temperature = Float.parseFloat(temperatureText);
+                    int heartRate = Integer.parseInt(heartRateText);
+                    int respiratoryRate = Integer.parseInt(respiratoryRateText);
+                    int bloodPressure = Integer.parseInt(bloodPressureText);
+                    int oxygenSaturation = Integer.parseInt(oxygenSaturationText);
+                    int PPS = Integer.parseInt(PPSText);
 
-                ResultFragment resultFragment = new ResultFragment();
-                Bundle bundle = new Bundle();
-                bundle.putInt("final_score", finalHPE);
-                bundle.putString("username", getArguments().getString("username"));
-                resultFragment.setArguments(bundle);
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, resultFragment, "result")
-                        .addToBackStack(null)
-                        .commit();
+                    finalHPE = getArguments().getInt("initial_score");
+                    if (temperature > 101) {
+                        finalHPE += 2;
+                    } else {
+                        finalHPE += 1;
+                    }
+                    if (heartRate > 120) {
+                        finalHPE += 3;
+                    } else {
+                        finalHPE += 1;
+                    }
+                    if (respiratoryRate > 35) {
+                        finalHPE += 2;
+                    } else {
+                        finalHPE += 1;
+                    }
+                    if (bloodPressure < 90) {
+                        finalHPE += 3;
+                    } else {
+                        finalHPE += 1;
+                    }
+                    if (oxygenSaturation < 90) {
+                        finalHPE += 3;
+                    } else {
+                        finalHPE += 1;
+                    }
+                    if (PPS < 20) {
+                        finalHPE += 3;
+                    } else if (PPS < 30) {
+                        finalHPE += 2;
+                    } else {
+                        finalHPE += 1;
+                    }
+
+                    ResultFragment resultFragment = new ResultFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("final_score", finalHPE);
+                    bundle.putString("username", getArguments().getString("username"));
+                    resultFragment.setArguments(bundle);
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, resultFragment, "result")
+                            .addToBackStack(null)
+                            .commit();
+                }
+                else {
+
+                    Toast.makeText(getActivity(), "All fields must be populated.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

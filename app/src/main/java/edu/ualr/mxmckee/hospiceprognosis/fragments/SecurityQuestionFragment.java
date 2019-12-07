@@ -47,25 +47,35 @@ public class SecurityQuestionFragment extends Fragment {
 
         final User user = MainActivity.userDatabase.userDao().getUser(getArguments().getString("username"));
 
-        securityQuestionEditText.setHint(user.getSecurityQuestion());
+        securityQuestionEditText.setText(user.getSecurityQuestion());
         securityQuestionEditText.setEnabled(false);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String providedAnswer = securityAnswerEditText.getText().toString();
-                if (providedAnswer.matches(user.getSecurityAnswer())) {
-                    ResetPasswordFragment resetPasswordFragment = new ResetPasswordFragment();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("username", getArguments().getString("username"));
-                    resetPasswordFragment.setArguments(bundle);
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_container, resetPasswordFragment, "reset_password")
-                            .addToBackStack(null)
-                            .commit();
+
+                if (!providedAnswer.matches("")) {
+
+                    if (providedAnswer.matches(user.getSecurityAnswer())) {
+
+                        ResetPasswordFragment resetPasswordFragment = new ResetPasswordFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("username", getArguments().getString("username"));
+                        resetPasswordFragment.setArguments(bundle);
+                        getActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, resetPasswordFragment, "reset_password")
+                                .addToBackStack(null)
+                                .commit();
+                    } else {
+
+                        Toast.makeText(getActivity(), "Answer is incorrect.", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    Toast.makeText(getActivity(), "Answer is incorrect.", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getActivity(), "All fields must be populated.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

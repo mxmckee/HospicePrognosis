@@ -94,7 +94,7 @@ public class ResultFragment extends Fragment {
                 bundle.putString("username", getArguments().getString("username"));
                 mainMenuFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, mainMenuFragment, "return_to_main_menu")
+                        .replace(R.id.fragment_container, mainMenuFragment, "main_menu")
                         .addToBackStack(null)
                         .commit();
 

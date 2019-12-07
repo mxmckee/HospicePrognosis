@@ -50,20 +50,26 @@ public class VerifyUsernameFragment extends Fragment {
 
                 String username = usernameEditText.getText().toString();
 
-                User testUser = MainActivity.userDatabase.userDao().getUser(username);
+                if (!username.matches("")) {
 
-                if (testUser == null) {
-                    Toast.makeText(getActivity(), "Username doesn't exist.", Toast.LENGTH_SHORT).show();
+                    User testUser = MainActivity.userDatabase.userDao().getUser(username);
+
+                    if (testUser == null) {
+                        Toast.makeText(getActivity(), "Username doesn't exist.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        SecurityQuestionFragment securityQuestionFragment = new SecurityQuestionFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("username", username);
+                        securityQuestionFragment.setArguments(bundle);
+                        getActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, securityQuestionFragment, "security_question")
+                                .addToBackStack(null)
+                                .commit();
+                    }
                 }
                 else {
-                    SecurityQuestionFragment securityQuestionFragment = new SecurityQuestionFragment();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("username", username);
-                    securityQuestionFragment.setArguments(bundle);
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_container, securityQuestionFragment, "security_question")
-                            .addToBackStack(null)
-                            .commit();
+
+                    Toast.makeText(getActivity(), "All fields must be populated.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

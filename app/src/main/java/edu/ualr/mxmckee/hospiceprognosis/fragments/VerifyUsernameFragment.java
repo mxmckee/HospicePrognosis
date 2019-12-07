@@ -1,4 +1,4 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.fragments;
 
 
 import android.content.Intent;
@@ -13,6 +13,11 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+
+import edu.ualr.mxmckee.hospiceprognosis.R;
+import edu.ualr.mxmckee.hospiceprognosis.activities.MainActivity;
+import edu.ualr.mxmckee.hospiceprognosis.fragments.SecurityQuestionFragment;
+import edu.ualr.mxmckee.hospiceprognosis.models.User;
 
 
 /**

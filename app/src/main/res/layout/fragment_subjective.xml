@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:background="@color/secondaryColor"
             android:paddingBottom="@dimen/space_mid"
-            tools:context=".MainActivity">
+            tools:context=".activities.MainActivity">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/symptoms_layout"

@@ -1,4 +1,4 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.fragments;
 
 
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,11 @@ import android.widget.TextView;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
+
+import edu.ualr.mxmckee.hospiceprognosis.R;
+import edu.ualr.mxmckee.hospiceprognosis.activities.MainActivity;
+import edu.ualr.mxmckee.hospiceprognosis.fragments.MainMenuFragment;
+import edu.ualr.mxmckee.hospiceprognosis.models.Prognosis;
 
 
 /**

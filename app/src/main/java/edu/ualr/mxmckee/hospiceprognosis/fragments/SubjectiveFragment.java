@@ -1,4 +1,4 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.fragments;
 
 
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import edu.ualr.mxmckee.hospiceprognosis.R;
+import edu.ualr.mxmckee.hospiceprognosis.fragments.ObjectiveFragment;
 
 
 /**

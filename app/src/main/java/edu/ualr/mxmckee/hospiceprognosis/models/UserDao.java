@@ -1,9 +1,11 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.models;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import edu.ualr.mxmckee.hospiceprognosis.models.User;
 
 @Dao
 public interface UserDao {

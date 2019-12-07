@@ -1,10 +1,12 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.models;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
 import java.util.List;
+
+import edu.ualr.mxmckee.hospiceprognosis.models.Prognosis;
 
 @Dao
 public interface PrognosisDao {

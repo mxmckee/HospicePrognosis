@@ -1,4 +1,4 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.fragments;
 
 
 import android.os.Bundle;
@@ -17,7 +17,11 @@ import com.google.android.material.button.MaterialButton;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
+
+import edu.ualr.mxmckee.hospiceprognosis.R;
+import edu.ualr.mxmckee.hospiceprognosis.activities.MainActivity;
+import edu.ualr.mxmckee.hospiceprognosis.fragments.MainMenuFragment;
+import edu.ualr.mxmckee.hospiceprognosis.models.Prognosis;
 
 
 /**

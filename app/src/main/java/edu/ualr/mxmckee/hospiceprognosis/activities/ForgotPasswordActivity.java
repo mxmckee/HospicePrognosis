@@ -1,10 +1,13 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+
+import edu.ualr.mxmckee.hospiceprognosis.R;
+import edu.ualr.mxmckee.hospiceprognosis.fragments.VerifyUsernameFragment;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 

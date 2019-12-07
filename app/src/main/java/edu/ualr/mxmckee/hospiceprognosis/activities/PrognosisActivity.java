@@ -1,4 +1,4 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
+
+import edu.ualr.mxmckee.hospiceprognosis.fragments.MainMenuFragment;
+import edu.ualr.mxmckee.hospiceprognosis.R;
 
 public class PrognosisActivity extends AppCompatActivity {
 

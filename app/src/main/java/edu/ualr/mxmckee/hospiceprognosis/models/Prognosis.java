@@ -1,4 +1,4 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.models;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

@@ -1,8 +1,11 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.adapters;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import edu.ualr.mxmckee.hospiceprognosis.fragments.LoginFragment;
+import edu.ualr.mxmckee.hospiceprognosis.fragments.RegisterFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 

@@ -1,10 +1,11 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 
+import edu.ualr.mxmckee.hospiceprognosis.R;
 import gr.net.maroulis.library.EasySplashScreen;
 
 public class SplashScreen extends AppCompatActivity {

@@ -1,19 +1,16 @@
-package edu.ualr.mxmckee.hospiceprognosis;
+package edu.ualr.mxmckee.hospiceprognosis.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
-import androidx.viewpager.widget.PagerTabStrip;
-import androidx.viewpager.widget.PagerTitleStrip;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.tabs.TabLayout;
+import edu.ualr.mxmckee.hospiceprognosis.models.PrognosisDatabase;
+import edu.ualr.mxmckee.hospiceprognosis.R;
+import edu.ualr.mxmckee.hospiceprognosis.models.UserDatabase;
+import edu.ualr.mxmckee.hospiceprognosis.adapters.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

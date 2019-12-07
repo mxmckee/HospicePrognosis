@@ -95,6 +95,7 @@ public class ObjectiveFragment extends Fragment {
                 ResultFragment resultFragment = new ResultFragment();
                 Bundle bundle = new Bundle();
                 bundle.putInt("final_score", finalHPE);
+                bundle.putString("username", getArguments().getString("username"));
                 resultFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, resultFragment, "result")

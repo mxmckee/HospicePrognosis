@@ -10,8 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 /**
@@ -34,7 +40,7 @@ public class ResultFragment extends Fragment {
         int HPEScore = getArguments().getInt("final_score");
         TextView prognosisHeaderTextView = view.findViewById(R.id.prognosis_header);
         TextView prognosisTextView = view.findViewById(R.id.prognosis);
-        String prognosis;
+        final String prognosis;
 
         if (HPEScore < 9) {
             prognosis = "Weeks to months";
@@ -64,13 +70,31 @@ public class ResultFragment extends Fragment {
                     manager.popBackStack();
                 }
 
+                int prognosisID = MainActivity.prognosisDatabase.prognosisDao().getCount() + 1;
+
+                Date currDate = new Date();
+                DateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
+                String date = dateFormat.format(currDate);
+
+
+                Prognosis currPrognosis = new Prognosis();
+                currPrognosis.setPrognosisID(prognosisID);
+                currPrognosis.setUsername(getArguments().getString("username"));
+                currPrognosis.setDate(date);
+                currPrognosis.setPrognosis(prognosis);
+
+                MainActivity.prognosisDatabase.prognosisDao().addPrognosis(currPrognosis);
+
                 MainMenuFragment mainMenuFragment = new MainMenuFragment();
                 Bundle bundle = new Bundle();
+                bundle.putString("username", getArguments().getString("username"));
                 mainMenuFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, mainMenuFragment, "return_to_main_menu")
                         .addToBackStack(null)
                         .commit();
+
+                Toast.makeText(getActivity(), "Prognosis successfully saved.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -85,11 +109,14 @@ public class ResultFragment extends Fragment {
 
                 MainMenuFragment mainMenuFragment = new MainMenuFragment();
                 Bundle bundle = new Bundle();
+                bundle.putString("username", getArguments().getString("username"));
                 mainMenuFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, mainMenuFragment)
                         .addToBackStack(null)
                         .commit();
+
+                Toast.makeText(getActivity(), "Prognosis discarded.", Toast.LENGTH_SHORT).show();
             }
         });
 

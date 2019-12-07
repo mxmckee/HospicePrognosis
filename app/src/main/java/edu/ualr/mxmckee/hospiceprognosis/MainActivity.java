@@ -18,6 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
 
     public static UserDatabase userDatabase;
+    public static PrognosisDatabase prognosisDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +32,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
 
         userDatabase = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "userDB").allowMainThreadQueries().build();
+        prognosisDatabase = Room.databaseBuilder(getApplicationContext(), PrognosisDatabase.class, "prognosisDB").allowMainThreadQueries().build();
     }
 }

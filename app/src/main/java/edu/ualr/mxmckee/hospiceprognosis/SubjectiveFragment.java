@@ -101,6 +101,7 @@ public class SubjectiveFragment extends Fragment {
                 ObjectiveFragment objectiveFragment = new ObjectiveFragment();
                 Bundle bundle = new Bundle();
                 bundle.putInt("initial_score", initialHPE);
+                bundle.putString("username", getArguments().getString("username"));
                 objectiveFragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, objectiveFragment, "objective_data")

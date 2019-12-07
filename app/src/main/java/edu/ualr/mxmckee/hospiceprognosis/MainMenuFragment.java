@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ import com.google.android.material.button.MaterialButton;
 public class MainMenuFragment extends Fragment implements View.OnClickListener {
 
     private MaterialButton getPrognosisButton;
+    private MaterialButton viewPrognosesButton;
+    private MaterialButton clearPrognosisHistoryButton;
     private MaterialButton deleteAccountButton;
 
     public MainMenuFragment() {
@@ -35,6 +38,10 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
 
         getPrognosisButton = view.findViewById(R.id.get_prognosis_button);
         getPrognosisButton.setOnClickListener(this);
+        viewPrognosesButton = view.findViewById(R.id.view_prognoses_button);
+        viewPrognosesButton.setOnClickListener(this);
+        clearPrognosisHistoryButton = view.findViewById(R.id.clear_prognosis_history_button);
+        clearPrognosisHistoryButton.setOnClickListener(this);
         deleteAccountButton = view.findViewById(R.id.delete_account_button);
         deleteAccountButton.setOnClickListener(this);
 
@@ -43,11 +50,28 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+        Bundle bundle = new Bundle();
+        bundle.putString("username", getArguments().getString("username"));
+
         switch (view.getId()) {
             case R.id.get_prognosis_button:
-                PrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SubjectiveFragment(), "subjective_data").addToBackStack(null).commit();
+                SubjectiveFragment subjectiveFragment = new SubjectiveFragment();
+                subjectiveFragment.setArguments(bundle);
+                PrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, subjectiveFragment, "subjective_data").addToBackStack(null).commit();
+                break;
+            case R.id.view_prognoses_button:
+                ViewPrognosesFragment viewPrognosesFragment = new ViewPrognosesFragment();
+                viewPrognosesFragment.setArguments(bundle);
+                PrognosisActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, viewPrognosesFragment, "prognosis_history").addToBackStack(null).commit();
+                break;
+            case R.id.clear_prognosis_history_button:
+                MainActivity.prognosisDatabase.prognosisDao().clearPrognoses(getArguments().getString("username"));
+                Toast.makeText(getActivity(), "Prognosis history successfully cleared.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.delete_account_button:
+                MainActivity.prognosisDatabase.prognosisDao().clearPrognoses(getArguments().getString("username"));
+
                 User user = new User();
                 user.setUsername(getArguments().getString("username"));
                 MainActivity.userDatabase.userDao().deleteUser(user);

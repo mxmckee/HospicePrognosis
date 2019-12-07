@@ -43,7 +43,7 @@ public class ObjectiveFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                finalHPE = getArguments().getInt("temporary_score");
+                finalHPE = getArguments().getInt("initial_score");
 
                 float temperature = Float.parseFloat(temperatureEditText.getText().toString());
                 int heartRate = Integer.parseInt(heartRateEditText.getText().toString());

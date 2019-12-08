@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".activities.MainActivity"
     android:background="@color/secondaryColor" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space_mid">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/login_layout"
+            android:id="@+id/prognoses_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/space_big"
@@ -30,16 +31,40 @@
                 android:paddingHorizontal="@dimen/space_mid"
                 android:paddingVertical="@dimen/space_mid">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/register_button"
-                    style="@style/TextButton"
+                <TextView
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/space_min"
+                    android:text="Prognosis History"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/prognoses"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Get a prognosis."
+                    android:textColor="@color/secondaryColor"
+                    android:textSize="16sp"
+                    android:text="Date: 12/06/2019\nPrognosis: Weeks to months"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/header" />
+                    app:layout_constraintTop_toBottomOf="@id/header" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/return_to_main_menu_button"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_mid"
+            android:text="Return to Main Menu"
+            app:layout_constraintEnd_toEndOf="@+id/prognoses_layout"
+            app:layout_constraintStart_toStartOf="@+id/prognoses_layout"
+            app:layout_constraintTop_toBottomOf="@+id/prognoses_layout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

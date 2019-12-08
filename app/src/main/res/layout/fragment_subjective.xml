@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/secondaryColor"
+            android:paddingBottom="@dimen/space_mid"
+            tools:context=".activities.MainActivity">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/symptoms_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_big"
+                android:layout_marginTop="@dimen/space_big"
+                android:layout_marginEnd="@dimen/space_big"
+                app:cardCornerRadius="@dimen/space_min"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/space_mid"
+                    android:paddingVertical="@dimen/space_min">
+
+                    <TextView
+                        android:id="@+id/header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Symptoms"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/select_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_min"
+                        android:text="Select all that apply:"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/header" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/shortness_of_breath_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Shortness of breath"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/select_message"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/agitation_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Agitation"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/shortness_of_breath_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/seizures_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Seizures"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/agitation_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/bleeding_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Bleeding"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/seizures_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/confusion_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Confusion"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/bleeding_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/unable_to_swallow_pills_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Unable to swallow pills"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/confusion_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/unable_to_swallow_liquids_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Unable to swallow liquids"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unable_to_swallow_pills_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/minimal_urine_output_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Minimal urine output"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unable_to_swallow_liquids_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/unable_to_communicate_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Unable to communicate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/minimal_urine_output_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/airway_secretions_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Airway secretions"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unable_to_communicate_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/mottling_of_extremities_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Mottling of extremities"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/airway_secretions_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/unable_to_get_out_of_bed_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Unable to get out of bed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mottling_of_extremities_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/apnea_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Apneas"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/unable_to_get_out_of_bed_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/skin_ulcer_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Skin ulcer"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/apnea_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/comatose_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/space_mid"
+                        android:buttonTint="@color/primaryDarkColor"
+                        android:text="Comatose"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/skin_ulcer_checkbox"
+                        app:useMaterialThemeColors="false" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/next_button"
+        style="@style/FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/space_mid"
+        android:src="@drawable/ic_check_24px" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

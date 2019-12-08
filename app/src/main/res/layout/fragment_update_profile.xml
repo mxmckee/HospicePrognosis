@@ -14,11 +14,11 @@
         android:paddingBottom="@dimen/space_mid">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/register_layout"
+            android:id="@+id/profile_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/space_big"
             android:layout_marginStart="@dimen/space_big"
+            android:layout_marginTop="@dimen/space_big"
             android:layout_marginEnd="@dimen/space_big"
             app:cardCornerRadius="@dimen/space_min"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,15 +31,24 @@
                 android:paddingHorizontal="@dimen/space_mid"
                 android:paddingVertical="@dimen/space_mid">
 
+                <TextView
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/space_min"
+                    android:text="User Profile"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout_username"
                     style="@style/TextInputLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:endIconMode="clear_text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/header">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_username"
@@ -156,18 +165,30 @@
                         android:hint="Answer"
                         android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/register_button"
+            android:id="@+id/update_button"
             style="@style/Button"
-            android:layout_marginTop="@dimen/space_mid"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Register"
-            app:layout_constraintEnd_toEndOf="@+id/register_layout"
-            app:layout_constraintStart_toStartOf="@+id/register_layout"
-            app:layout_constraintTop_toBottomOf="@+id/register_layout" />
+            android:layout_marginTop="@dimen/space_mid"
+            android:text="Update"
+            app:layout_constraintEnd_toEndOf="@+id/profile_layout"
+            app:layout_constraintStart_toStartOf="@+id/profile_layout"
+            app:layout_constraintTop_toBottomOf="@+id/profile_layout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/return_to_main_menu_button"
+            style="@style/Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Return to Main Menu"
+            app:layout_constraintEnd_toEndOf="@+id/profile_layout"
+            app:layout_constraintStart_toStartOf="@+id/profile_layout"
+            app:layout_constraintTop_toBottomOf="@+id/update_button" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
